@@ -1,0 +1,30 @@
+<div *ngFor="let UserDetail of AllUserDetails">
+   <div *ngIf="UserDetail.userId==service.userId && UserDetail.cart.cartId==service.cartId">
+       <div *ngFor="let product of UserDetail.cart.products">
+        <div *ngIf="product.product_type=='Book' || product.product_type=='book' " class="card" style="width: 18rem;">
+        <div class="card-body">
+                <h5 class="card-title">{{product.productName}}</h5>
+                <p class="card-text">Genre: {{product.genre}}</p>
+                <p class="card-text">Author: {{product.author}}</p>
+                <p class="card-text">Publications: {{product.publications}}</p>
+                <p class="card-text">Quantity: {{product.quantity}}</p>
+                <p class="card-text">Price: {{product.price}}</p>
+                <a class="btn btn-primary" (click)="service.deleteProductFromCart(product.productId,UserDetail.cart.cartId)">Remove from Cart</a>
+              </div></div>
+   <div *ngIf="product.product_type=='Apparal' || product.product_type=='apparal' " class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{product.productName}}</h5>
+          <p class="card-text">Brand: {{product.brand}}</p>
+          <p class="card-text">Design: {{product.design}}</p>
+          <p class="card-text">Type: {{product.apparal_type}}</p>
+          <p class="card-text">Quantity: {{product.quantity}}</p>
+          <p class="card-text">Price: {{product.price}}</p>
+          <a class="btn btn-primary" (click)="service.deleteProductFromCart(product.productId,UserDetail.cart.cartId)">Remove from Cart</a>
+        </div>
+        </div><br>
+   </div>
+   </div>
+</div>
+
+   <h5>Total Price : {{totalPrice}}</h5><br>
+

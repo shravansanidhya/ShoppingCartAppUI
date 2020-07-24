@@ -1,0 +1,12 @@
+   <div class="form">
+   <label>Name</label>
+   <br>
+    <input type="text" [formControl]="name">
+    <br><br>
+    <label>Password</label>
+    <br>
+    <input type="password" [formControl]="password">
+    <br><br>
+    <a class="btn btn-primary" (click)="service.addUser(name.value)">Submit</a>
+    </div>
+

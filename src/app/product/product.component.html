@@ -1,0 +1,25 @@
+<div><input type="text" class="form-control" placeholder="Search" 
+      style="width: 300px" [(ngModel)]="searchTerm" />
+</div>
+<div *ngFor="let product of productList | productFilter:searchTerm">
+<div *ngIf="product.product_type=='Book' || product.product_type=='book' " class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{product.productName}}</h5>
+      <p class="card-text">Genre: {{product.genre}}</p>
+      <p class="card-text">Author: {{product.author}}</p>
+      <p class="card-text">Publications: {{product.publications}}</p>
+      <p class="card-text">Price: {{product.price}}</p>
+      <a class="btn btn-primary" (click)="service.addToCart(product.productId,service.cartId,service.userId)">Add to Cart</a>
+    </div>
+    </div><br>
+   <div *ngIf="product.product_type=='Apparal' || product.product_type=='apparal' " class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{product.productName}}</h5>
+      <p class="card-text">Brand: {{product.brand}}</p>
+      <p class="card-text">Design: {{product.design}}</p>
+      <p class="card-text">Type: {{product.apparal_type}}</p>
+      <p class="card-text">Price: {{product.price}}</p>
+      <a class="btn btn-primary" (click)="service.addToCart(product.productId,service.cartId,service.userId)">Add to Cart</a>
+    </div>
+    </div><br>
+</div>
